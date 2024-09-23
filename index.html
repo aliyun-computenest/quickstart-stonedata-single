@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="计算巢是阿里云开放给企业应用服务商的服务管理平台。服务商能够在计算巢上发布私有化部署服务，为其客户提供云上软件一键部署的能力；同时也支持全托管模式的服务，赋能服务商托管其客户资源。">
+  <title>Stonedata服务实例部署文档 - stonedata</title>
+
+  <link rel="shortcut icon" href="img/favicon.ico">
+
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+  <link rel="stylesheet" href="css/theme.css">
+  
+
+  
+
+  
+  
+
+  
+    <script src="search/main.js"></script>
+  
+
+  
+
+  <script src="js/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="nav">
+      <div class="nav-inner">
+        <div class="logo">
+          <img src="./img/logo-2x.png">
+        </div>
+        <div class="nav-list">
+          <ul>
+          
+              <li><a href="#stonedata">Stonedata服务实例部署文档</a></li>
+              
+                  <li><a href="#_1">概述</a></li>
+                  
+              
+                  <li><a href="#_2">计费说明</a></li>
+                  
+              
+                  <li><a href="#_3">部署架构</a></li>
+                  
+              
+                  <li><a href="#_4">部署流程</a></li>
+                  
+                      <li class="li-h3"><a href="#_5">部署步骤</a></li>
+                  
+                      <li class="li-h3"><a href="#_6">验证结果</a></li>
+                  
+              
+                  <li><a href="#_7">问题排查</a></li>
+                  
+              
+                  <li><a href="#_8">联系我们</a></li>
+                  
+              
+          
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content theme-github">
+      
+      <div class="content-inner">        
+        
+        <h1 id="stonedata">Stonedata服务实例部署文档</h1>
+<h2 id="_1">概述</h2>
+<p>StoneData 是⼀款企业级全场景高性能数据仓库产品，融合数据库、大数据技术于一体。具备⽔平在线扩缩容，⾦融级⾼可⽤，兼容 MySQL⽣态，支持高吞吐的数据实时增删改、低延时的实时分析和复杂ETL，兼容上下游生态工具，提供全⾯向量化引擎、CBO优化器、多种数据源联邦查询等重要特性。StoneData 致⼒于在全场景 OLAP 业务上为⽤户提供统⼀的解决⽅案，适⽤于对性能、实时性、并发能⼒和灵活性有较⾼要求的场景</p>
+<h2 id="_2">计费说明</h2>
+<p>计费方式包括：</p>
+<ul>
+<li>按量付费（小时）</li>
+<li>包年包月</li>
+</ul>
+<p>目前提供如下实例：</p>
+<table>
+<thead>
+<tr>
+<th>规格族</th>
+<th>vCPU与内存</th>
+<th>磁盘</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基础版</td>
+<td>ecs.g7.2xlarge，8vCPU 32GiB</td>
+<td>ESSD云盘 250GiB</td>
+</tr>
+<tr>
+<td>进阶版</td>
+<td>ecs.r7.4xlarge，16vCPU 128GiB</td>
+<td>ESSD云盘 500GiB</td>
+</tr>
+<tr>
+<td>高级版</td>
+<td>ecs.g7.8xlarge，32vCPU 128GiB</td>
+<td>ESSD云盘 800GiB</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">部署架构</h2>
+<p><img alt="Alt text" src="stonedata_arch.png" /></p>
+<h2 id="_4">部署流程</h2>
+<h3 id="_5">部署步骤</h3>
+<p>1.输入 服务实例名称 如:stone</p>
+<p>2.选择 地域</p>
+<p>3.选择 ECS交换机可用区</p>
+<p>4.选择 现有VPC的实例ID</p>
+<p>5.选择 网络交换机ID</p>
+<p>6.选择 付费类型 如:按量付费,包年包月</p>
+<p>7.输入 集群名称 如:my</p>
+<p>8.输入 登录密码 (备注:Linux密码,stonedata数据库 root密码)</p>
+<p>9.点击 下一步: 确认订单</p>
+<h3 id="_6">验证结果</h3>
+<p>1.查看服务实例。服务实例创建成功后，部署时间大约需要10分钟。部署完成后，页面上可以看到对应的服务实例。
+2.通过服务实例访问TuGraph。进入到对应的服务实例后，可以在页面上获取到web、rpc、ssh共3种使用方式。</p>
+<p>3.进入 Linux 后, 却换到root(命令:sudo su -)</p>
+<p>4.运行 yum install mysql</p>
+<p>5.mysql -h(服务器IP) -P3001 -uroot -p密码[参照[部署步骤--&gt;第8步]]</p>
+<h2 id="_7">问题排查</h2>
+<p>请访问<a href="https://www.aliyun.com">Demo的问题排查链接</a>获取帮助。</p>
+<h2 id="_8">联系我们</h2>
+<p>欢迎访问Demo官网（<a href="https://www.aliyun.com">https://www.aliyun.com</a>）了解更多信息。</p>
+<p>联系邮箱：<a href="mailto:https://www.aliyun.com">https://www.aliyun.com</a></p>
+<p>社区版开源地址：<a href="https://github.com/">https://github.com/</a></p>
+        
+      </div>
+
+      <div class="copyrights">© 2009-2022 Aliyun.com 版权所有</div>
+    </div>
+  </div>
+  
+  <!--
+  MkDocs version      : 1.6.1
+  Docs Build Date UTC : 2024-09-23 07:34:11.429004+00:00
+  -->
+</body>
+</html>
